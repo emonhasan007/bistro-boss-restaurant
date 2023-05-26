@@ -6,6 +6,7 @@ import Cover from '../sheared/cover/Cover';
 import orderCoverImg from '../../assets/shop/banner2.jpg'
 import useMenu from '../../hooks/useMenu';
 import { useParams } from 'react-router-dom';
+import OrderTab from './OrderTab';
 
 const Order = () => {
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
@@ -13,6 +14,11 @@ const Order = () => {
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
     const [menu] = useMenu();
+    const desserts = menu.filter(item => item.category === 'dessert');
+    const soup = menu.filter(item => item.category === 'soup');
+    const salad = menu.filter(item => item.category === 'salad');
+    const pizza = menu.filter(item => item.category === 'pizza');
+    const drinks = menu.filter(item => item.category === 'drinks');
     return (
         <div>
              <Helmet>
