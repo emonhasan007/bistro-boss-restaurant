@@ -8,7 +8,6 @@ const Resister = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {createUser} = useContext(AuthContext);
     const onSubmit = data => {
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -84,7 +83,7 @@ const Resister = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
-                            </div>
+                            </div>   
                         </form>
                         <p><small>Already have an account <Link to="/login">Login</Link></small></p>
                     </div>

@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const {signIn} = useContext(AuthContext);
     const [disabled, setDisabled] = useState(true);
     const handleLogin = (event)=>{
@@ -15,7 +18,9 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
             const loggedUser = result.user;
+            navigate(from, {replace:true})
             console.log(loggedUser)
+
         })
         .catch(error =>{console.error(error)})
 
