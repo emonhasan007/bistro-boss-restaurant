@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const Resister = () => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {createUser} = useContext(AuthContext);
     const onSubmit = data => {
         console.log(data);
