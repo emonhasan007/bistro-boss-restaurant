@@ -1,9 +1,18 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from '../../hooks/useCart';
+import { HackText } from "react-hacker-text-effect";
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext);
+    const { user,logOut } = useContext(AuthContext);
+    const [cart] = useCart();
+    const handleLogOut =()=>{
+        logOut()
+        .then()
+        .catch(error=>{console.error(error)})
+    }
     return (
         <>
             <div className="navbar text-white fixed z-10 w-[95%]">
@@ -27,20 +36,26 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <HackText word="<Emon/>" textSize="28px" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to='/' >Home</Link></li>
                         <li><Link to='/order/salad' >Order</Link></li>
                         <li><Link to='/menu' >Menu</Link></li>
+                        <Link to='/dashboard/mycart'>
+                        <button className="btn gap-2">
+                            <FaShoppingCart/>
+                            <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                        </button>
+                        </Link>
                         {user ? <>
-                            
-                            <button className='btn'>Logout</button>
+
+                            <button onClick={handleLogOut}>Logout</button>
                         </> : <>
-                        <li><Link to='/login' >Login</Link></li>
+                            <li><Link to='/login' >Login</Link></li>
                         </>}
-                        
+
                     </ul>
                 </div>
                 <div className="navbar-end">

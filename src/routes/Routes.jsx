@@ -5,6 +5,8 @@ import Menu from "../pages/menu/Menu";
 import Order from "../pages/order/Order";
 import Login from "../pages/login/Login";
 import Resister from "../pages/resister/Resister";
+import DashBoard from "../layout/DashBoard";
+import MyCrt from "../pages/dashboard/MyCrt";
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,17 @@ const router = createBrowserRouter([
                 element:<Resister></Resister>
             }
         ]
+    },
+    {
+        path:'dashBoard',
+        element:<DashBoard></DashBoard>,
+        children:[
+            {
+                path:'mycart',
+                element:<MyCrt></MyCrt>
+            }
+        ]
+            
     }
 ])
 export default router;
