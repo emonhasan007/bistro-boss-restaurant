@@ -7,6 +7,7 @@ import Login from "../pages/login/Login";
 import Resister from "../pages/resister/Resister";
 import DashBoard from "../layout/DashBoard";
 import MyCrt from "../pages/dashboard/MyCrt";
+import AllUsers from "../pages/dashboard/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:'mycart',
                 element:<MyCrt></MyCrt>
+            },
+            {
+                path:'allusers',
+                element:<AllUsers></AllUsers>
             }
         ]
             

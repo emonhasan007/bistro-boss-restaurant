@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../provider/AuthProvider';
+import SocialLogin from '../sheared/sociallogin/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -79,8 +80,11 @@ const Login = () => {
                             </div>
                         </form>
                         <p><small>New Here? <Link to="/resister">Create an account</Link> </small></p>
+                    <SocialLogin></SocialLogin>
+
                     </div>
                 </div>
+                
             </div>
         </>
     );
