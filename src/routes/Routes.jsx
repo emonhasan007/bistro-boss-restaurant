@@ -8,6 +8,8 @@ import Resister from "../pages/resister/Resister";
 import DashBoard from "../layout/DashBoard";
 import MyCrt from "../pages/dashboard/MyCrt";
 import AllUsers from "../pages/dashboard/AllUsers";
+import AddItem from "../pages/dashboard/AddItem";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path:'allusers',
                 element:<AllUsers></AllUsers>
+            },
+            {
+                path:'additem',
+                element:<AdminRoute><AddItem></AddItem></AdminRoute>
             }
         ]
             
