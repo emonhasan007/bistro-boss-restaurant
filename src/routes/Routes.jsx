@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'manageitem',
-                element:<ManageItem></ManageItem>
+                element:<AdminRoute><ManageItem></ManageItem></AdminRoute>
             }
         ]
             
